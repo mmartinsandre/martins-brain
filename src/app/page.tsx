@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEarth } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
-  const storedLanguage = localStorage.getItem('language');
+  const storedLanguage = typeof window !== 'undefined' ? localStorage.getItem('language') : null;
   const initialLanguage: Language = storedLanguage as Language || "pt-br";
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const [typedText, setTypedText] = useState("");
