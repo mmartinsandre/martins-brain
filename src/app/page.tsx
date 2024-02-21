@@ -132,7 +132,7 @@ function Modal({ message, onClose }: { message: string, onClose: () => void }) {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
       <div className="flex flex-col bg-neutral-900 p-5 rounded-xl">
         <span className="text-md md:text-lg font-light text-justify">{message}</span>
-        <button onClick={onClose} className="mt-4 py-2 bg-neutral-800 text-white rounded">Fechar</button>
+        <button onClick={onClose} className="mt-4 py-2 bg-neutral-800 text-white rounded">Ok</button>
       </div>
     </div>
   );
