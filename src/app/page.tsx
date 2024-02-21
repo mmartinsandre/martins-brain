@@ -43,7 +43,7 @@ function Header() {
   );
 }
 
-function Main({ typedText, description }) {
+function Main({ typedText, description }: { typedText: string, description: string }) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-around pt-24 pb-24 md:pt-16 md:pb-16 bg-neutral-950 overflow-hidden md:px-64">
       <TypedMessage message={typedText} />
@@ -52,7 +52,7 @@ function Main({ typedText, description }) {
   );
 }
 
-function TypedMessage({ message }) {
+function TypedMessage({ message }: { message: string }) {
   return (
     <div className="flex flex-row w-screen justify-center items-center">
       <div className="flex flex-col bg-neutral-900 p-6 rounded-xl border-2 border-primary-500">
@@ -62,7 +62,7 @@ function TypedMessage({ message }) {
   );
 }
 
-function Description({ description }) {
+function Description({ description }: { description: string }) {
   return (
     <div className="flex flex-row justify-center items-center px-8">
       <div className="flex flex-col bg-neutral-900 p-4 rounded-xl p-4">
