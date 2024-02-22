@@ -1,7 +1,10 @@
 'use client'
+import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEarth } from '@fortawesome/free-solid-svg-icons'
+
+import LogoImage from '../assets/images/logo.png'
 
 export default function Home() {
   const storedLanguage = typeof window !== 'undefined' ? localStorage.getItem('language') : null;
@@ -74,6 +77,7 @@ export default function Home() {
       {isModalOpen && <Modal message={modalMessage} onClose={() => setIsModalOpen(false)} />}
       <Header navLinks={navLinks} onLinkClick={handleLinkClick} onToggleLanguage={toggleLanguage} />
       <Main typedText={typedText} description={initialDescription} onToggleLanguage={toggleLanguage} />
+      <Footer />
     </>
   );
 }
@@ -95,7 +99,7 @@ function Header({ navLinks, onLinkClick, onToggleLanguage }: { navLinks: { home:
 
 function Main({ typedText, description, onToggleLanguage }: { typedText: string, description: string, onToggleLanguage: () => void }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-around pt-24 pb-24 md:pt-16 md:pb-16 bg-neutral-950 overflow-hidden md:px-64">
+    <main className="flex min-h-screen flex-col items-center justify-around pt-24 pb-24 md:pt-16 md:pb-48 bg-neutral-950 overflow-hidden md:px-64">
       <TypedMessage message={typedText} onToggleLanguage={onToggleLanguage} />
       <Description description={description} />
     </main>
@@ -145,5 +149,16 @@ function Loading() {
         <div className="border-neutral-700 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
       </div>
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className='fixed bottom-0 w-full z-10 p-5'>
+      <div className="flex flex-col justify-center items-center">
+        <Image src={LogoImage} alt="Logo" width={45} className='my-4' />
+        <span className="text-xs text-neutral-500 md:text-sm font-light text-justify md:tracking-tighter">© 2024 - Todos os direitos reservados - mmartinsandre</span>
+      </div>
+    </footer>
   );
 }
